@@ -30,6 +30,8 @@ app.use(express.static(path.join(__dirname, "public")));
 require("./routes/api-routes")(app,axios,cheerio);
 require("./routes/html-routes")(app);
 
+mongoose.connect("mongodb://localhost/homeworkScraper", {useNewUrlParser: true});
+
 
 
 app.listen(PORT, () => {
