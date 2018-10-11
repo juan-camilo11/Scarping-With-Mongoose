@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Scraping With Mongoose</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <header id="header" class="alt">
+          <div class="logo"><a href="/">Scraping with mongoose <span>Juan Varon</span></a></div>
+      </header>
+      
+      <section id="banner" class="mx-auto">
+          <div class="inner mx-auto">
+              <header>
+                  <h1 class="text-center">Scraping with Mongoose</h1>
+              </header>
+          </div>
+      </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-10">
+            <div id="articles">
+                <div class="card mb-4">
+                    <div class="card-body">
+                      <h3 class="card-title">Scraped Reddit Posts <button id="scrapeNewData" class="btn btn-primary">Scrape new data</button></h3>
+                      <table class="table table-sm table-hover" id='scraped-table'>
+                        <thead>
+                          <tr>
+                            <th scope="col">Posts</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div> 
+            </div>
+        </div>
+        <div class="col-sm-1">
+
+        </div>
+
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

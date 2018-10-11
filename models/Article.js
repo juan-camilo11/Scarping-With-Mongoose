@@ -15,9 +15,10 @@ const ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  comment: {
-    type: Schema.Types.ObjectId,
-    ref: "Comment"
+  comments: [{type: Schema.Types.ObjectId, ref:'Comment'}],
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

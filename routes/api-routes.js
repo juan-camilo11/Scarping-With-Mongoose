@@ -18,23 +18,14 @@ module.exports = (app, axios, cheerio) => {
             console.log(dbArticle);
           })
           .catch(function(err) {
-            return res.json(err);
+            console.log(err);
           });
       });
     });
-    res.status(200).render("handlebars shit");
+    res.status(200).json("data was successfully scraped");
   });
 
-  app.get("/articles", (req, res) => {
-    db.Article.find({})
-      .then(function(dbArticle) {
-        res.json(dbArticle);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
-  });
-
+  //populate comment on article
   app.get("/articles/:id", (req, res) => {
     db.Article.findOne({ _id: req.params.id })
       .populate("comment")
@@ -46,12 +37,13 @@ module.exports = (app, axios, cheerio) => {
       });
   });
 
+  //create comment on article
   app.post("/articles/:id", (req, res) => {
     db.Comment.create(req.body)
       .then(function(dbComment) {
         return db.Article.findOneAndUpdate(
           { _id: req.params.id },
-          { comment: dbComment._id },
+          { $push: {comments: dbComment._id} },
           { new: true }
         );
       })
@@ -59,6 +51,7 @@ module.exports = (app, axios, cheerio) => {
         res.json(dbArticle);
       })
       .catch(function(err) {
+        console.log("the error occurs here");
         res.json(err);
       });
   });
